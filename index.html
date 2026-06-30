@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Minor Test Planner</title>
+    <meta name="theme-color" content="#0f766e" />
+    <meta name="description" content="Offline minor test planner with chapter progress, scores, and ranks." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Test Planner" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="assets/icons/icon-180.png" />
+    <link rel="icon" href="assets/icons/icon-192.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Minor Test Planner</p>
+        <h1 id="active-title">Upcoming Test</h1>
+      </div>
+      <div class="date-control">
+        <label for="date-picker">Preview date</label>
+        <input id="date-picker" type="date" />
+      </div>
+    </header>
+
+    <main>
+      <section class="progress-dashboard" aria-labelledby="progress-title">
+        <div class="dashboard-heading">
+          <div>
+            <p class="eyebrow">Progress</p>
+            <h2 id="progress-title">Full Progress Chart</h2>
+          </div>
+          <button id="toggle-progress" class="ghost-button" type="button" aria-expanded="true">
+            Hide chart
+          </button>
+        </div>
+        <div id="progress-content" class="progress-content">
+          <div class="metric-grid">
+            <article class="metric">
+              <span class="metric-label">Chapters finished</span>
+              <strong id="chapter-total">0%</strong>
+            </article>
+            <article class="metric">
+              <span class="metric-label">Theory done</span>
+              <strong id="theory-total">0%</strong>
+            </article>
+            <article class="metric">
+              <span class="metric-label">Module done</span>
+              <strong id="module-total">0%</strong>
+            </article>
+            <article class="metric">
+              <span class="metric-label">Scores added</span>
+              <strong id="scores-total">0/10</strong>
+            </article>
+          </div>
+          <div class="chart-wrap">
+            <div class="chart-scroll">
+              <div id="progress-chart" class="progress-chart" aria-label="Progress by test"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="active-band" aria-labelledby="active-title">
+        <div class="active-grid">
+          <div class="status-panel">
+            <p class="label">Current window</p>
+            <p id="window-range" class="range">Loading...</p>
+            <p id="prep-message" class="prep-message"></p>
+            <div class="progress-wrap">
+              <div class="progress-meta">
+                <span id="progress-label">Progress</span>
+                <span id="days-left">0 days left</span>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div id="progress-bar" class="progress-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="test-panel">
+            <div class="test-heading">
+              <div>
+                <p id="active-original-date" class="label">Original date</p>
+                <h2 id="active-test-name">Minor Test</h2>
+              </div>
+              <span id="active-badge" class="badge">Upcoming</span>
+            </div>
+            <div id="active-result" class="result-panel"></div>
+            <div id="active-subjects" class="subject-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="all-tests-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Menu</p>
+            <h2 id="all-tests-title">All Tests</h2>
+          </div>
+          <p class="section-note">Original dates are preserved; preparation windows start from 1 July 2026.</p>
+        </div>
+        <div id="test-menu" class="test-menu"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
